@@ -1,0 +1,103 @@
+=== Pengenalan OOP ===
+
+
+
+=== Membuat Constructor Function ===
+
+
+
+=== Property di Constructor Function ===
+
+
+
+=== Method di Constructor Function ===
+
+
+
+=== Parameter di Constructor Function ===
+
+
+
+=== Constructor Inheritance ===
+
+
+
+=== Prototype ===
+
+
+
+=== Prototype Inheritance ===
+
+
+
+=== Class ===
+
+
+
+=== Constructor di Class ===
+
+
+
+=== Property di Class ===
+
+
+
+=== Method di Class ===
+
+
+
+=== Class Inheritance ===
+
+
+
+=== Super Constructor ===
+
+
+
+=== Super Method ===
+
+
+
+=== Getter dan Setter di Class ===
+
+
+
+=== Public Class Field ===
+
+
+
+=== Private Class Field ===
+
+
+
+=== Private Method ===
+
+
+
+=== Operator instanceof ===
+
+
+
+=== Static Field ===
+
+
+
+=== Static Method ===
+
+
+
+=== Error ===
+
+
+
+=== Error Handling ===
+
+
+
+=== Membuat Class Error ===
+
+
+
+=== Iterable dan Iterator ===
+
+
