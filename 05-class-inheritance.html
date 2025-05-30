@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Inheritance</title>
+  </head>
+  <body>
+    <script>
+      {
+        console.log("== Class Inheritance ==");
+        class Employee {
+          sayHello(name) {
+            console.info(`Hello ${name}, my name is employee ${this.name}`);
+          }
+        }
+
+        class Manager extends Employee {
+          sayHello(name) {
+            console.info(`Hello ${name}, my name is manager ${this.name}`);
+          } // override
+        }
+
+        const lea = new Employee();
+        lea.name = "Lea";
+        lea.sayHello("Leya");
+
+        const lio = new Manager();
+        lio.name = "Lio";
+        lio.sayHello("Liyo");
+
+        console.info(lea);
+        console.info(lio);
+      }
+      {
+        console.log("== Super Constructor / Constructor Inheritance ==");
+        class Employee {
+          constructor(firstName) {
+            this.firstName = firstName;
+          }
+          sayHello(name) {
+            console.info(`Hello ${name}, my name is employee ${this.name}`);
+          }
+        }
+
+        class Manager extends Employee {
+          constructor(firstName, lastName) {
+            super(firstName);
+            this.lastName = lastName;
+          }
+          sayHello(name) {
+            console.info(`Hello ${name}, my name is manager ${this.name}`);
+          } // override
+        }
+
+        const lea = new Employee("Lea");
+        lea.sayHello("Leya");
+
+        const lio = new Manager("Lio", "Alyu");
+        lio.sayHello("Liyo");
+
+        console.info(lea);
+        console.info(lio);
+      }
+      {
+        console.log("== Super Method ==");
+        class Employee {
+          sayHello(name) {
+            console.info(`Hello ${name}, my name is employee ${this.name}`);
+          }
+          sayHello2(name) {
+            console.info(`Hello ${name}, my name is employee ${this.name}`);
+          }
+        }
+
+        class Manager extends Employee {
+          sayHello(name) {
+            super.sayHello()
+            super.sayHello2()
+            console.info(`Hello ${name}, my name is manager ${this.name}`);
+          } // override tapi juga memanggil parent
+        }
+
+        const lea = new Manager("Lea");
+        lea.sayHello("Leya");
+        console.info(lea);
+      }
+    </script>
+  </body>
+</html>
