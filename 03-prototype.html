@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prototype</title>
+  </head>
+  <body>
+    <script>
+      {
+        console.log("=== Menambah Property ke Instance Object ===");
+        function Person(firstName, lastName) {
+          this.firstName = firstName;
+          this.lastName = lastName;
+          this.sayHello = function (name) {
+            console.info(`Hello ${name}, my name is ${this.firstName}`);
+          };
+          // cara lain selain menambahkan di constructor adalah menambahkan di prototype
+        }
+        const lio = new Person("Lio", "Alyu");
+        lio.sayBye = function () {
+          console.info("good bye");
+        }; // hanya ada instance object si lio
+
+        const lia = new Person("Lia", "Alyu");
+
+        console.log(lio);
+        console.log(lia);
+      }
+      {
+        console.log("=== Menambah Property ke Prototype ===");
+        function Person(firstName, lastName) {
+          this.firstName = firstName;
+          this.lastName = lastName;
+          this.sayHello = function (name) {
+            console.info(`Hello ${name}, my name is ${this.firstName}`);
+          };
+        }
+        const lio = new Person("Lio", "Alyu");
+
+        Person.prototype.sayBye = function () {
+          console.info("good bye");
+        };
+
+        Person.prototype.run = function () {
+          console.info(`${this.firstName} is running`);
+        };
+
+        lio.sayBye();
+
+        // ini ada di prototype, bukan instance object nya
+        // untuk mengaksesnya / cara kerja nya
+        // jika di instance object ada, maka itu yang diakses,
+        // jika tidak ada maka mengecek prototype nya sampai prototype object
+        // sampai proto object tidak ditemukan, maka error
+      }
+      {
+        console.log("== Melakukan pewarisan ==");
+        function Employee(name) {
+          this.name = name;
+        }
+
+        function Manager(name) {
+          this.name = name;
+        }
+
+        // mewariskan employee ke manager
+        // Manager.prototype = Employee.prototype; // salah
+        Manager.prototype = Object.create(Employee.prototype);
+
+        // Manager.prototype.sayHello = function (name) {
+        //   console.info(`Hello ${name}, my name is Manager ${this.name}`);
+        // }; // override
+
+        Employee.prototype.sayHello = function (name) {
+          console.info(`Hello ${name}, my name is Employee ${this.name}`);
+        };
+
+        const employee = new Employee("Lea Employee");
+        employee.sayHello("Customer");
+
+        const manager = new Manager("Lea Manager");
+        manager.sayHello("Emplyee");
+
+        console.info(employee);
+        console.info(manager);
+
+        // sekarang proto manager tidak mengacu ke proto objek langsung
+        // tapi proto manager -> proto employee -> proto objek
+      }
+    </script>
+  </body>
+</html>

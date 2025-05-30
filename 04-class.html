@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class</title>
+  </head>
+  <body>
+    <script>
+      {
+        console.log("== Class Constructor ==");
+        class Person {
+          constructor(name) {
+            console.log(`Membuat Person ${name}`);
+          }
+        }
+        const lea = new Person("Lea");
+        const jsKeren = new Person();
+        console.log(lea);
+      }
+      {
+        console.log("== Class Property ==");
+        class Person {
+          constructor(name) {
+            this.name = name;
+          }
+        }
+        const lea = new Person("Lea");
+        console.log(lea);
+      }
+      {
+        console.log("== Class Method ==");
+        class Person {
+          constructor(name) {
+            this.name = name;
+            // tidak direkomendasikan
+            // this.sayHello = function (name) {
+            //   console.log(`Hello ${name} I'm ${this.name}`);
+            // };
+          }
+
+          sayHello(name) {
+            console.log(`Hello ${name} I'm ${this.name}`);
+          }
+        }
+        const lea = new Person("Lea");
+        console.log(lea);
+        lea.sayHello("Udin")
+      }
+    </script>
+  </body>
+</html>
