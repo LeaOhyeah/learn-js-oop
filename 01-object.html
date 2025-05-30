@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object</title>
+  </head>
+  <body>
+    <script>
+      {
+        // dua object ini unique, memiliki atribute dan method berbeda
+        const lea = {
+          firstName: "Lea",
+          sayHello: function () {
+            console.log("Hello, I'm Lea");
+          },
+        };
+        const lia = {
+          namaDepan: "Lia",
+          katakanHallo(nama) {
+            console.log(`Halo ${nama} saya Lia`);
+          },
+        };
+        lea.sayHello();
+        lia.katakanHallo("Lea");
+
+        // === Membuat Constructor Function ===
+        function Person() {
+          // === Property di Constructor Function ===
+          this.firstName = "";
+          this.lastName = "";
+          // === Method di Constructor Function ===
+          this.sayHello = function (name) {
+            console.info(`Hello ${name}, my name is ${this.firstName}`);
+          };
+        }
+        const lio = new Person();
+        lio.firstName = "Lio";
+        const udin = new Person();
+        // dua objek ini otomatis memiliki property yang sama dan terprediksi
+        const budi = new Person();
+        budi.namaDepan = ""; // keunikan js
+        lio.sayHello("Bambang");
+
+        console.log(lio);
+        console.log(udin);
+        console.log(budi);
+      }
+
+      // === Parameter di Constructor Function ===
+      {
+        console.log("=== Parameter di Constructor Function ===");
+        function Person(firstName, lastName) {
+          this.firstName = firstName;
+          this.lastName = lastName;
+          this.sayHello = function (name) {
+            console.info(`Hello ${name}, my name is ${this.firstName}`);
+          };
+        }
+        const lio = new Person("Lio", "Alyu");
+        console.log(lio);
+      }
+    </script>
+  </body>
+</html>
