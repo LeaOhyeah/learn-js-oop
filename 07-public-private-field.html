@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Public and Private Class Field</title>
+  </head>
+  <body>
+    <script>
+      // public
+      class Customer {
+        firstName;
+        lastName;
+        belance = 0;
+      }
+
+      const lea = new Customer();
+      console.log(lea);
+
+      // private
+      class Counter {
+        #counter = 0;
+
+        increment() {
+          this.#counter++;
+        }
+
+        decrement() {
+          this.#counter--;
+        }
+
+        get counter() {
+          return this.#counter;
+        }
+      }
+
+      const counter = new Counter();
+      counter.increment;
+      counter.counter = 100; // tidak merubah #counter, membuat field public baru counter
+      console.log(counter.counter);
+    </script>
+  </body>
+</html>
